@@ -11,6 +11,7 @@ import {
 
 import {Author} from '../components/Author'
 import {Comments} from '../components/Comments'
+import {AddComment} from '../components/AddComment'
 
 export class Post extends Component{
     render(){
@@ -19,6 +20,7 @@ export class Post extends Component{
                 <Author email="vitor@gmail.com" nickname="Vitor"/>
                 <Image source={this.props.image} style={styles.image}/>                       
                 <Comments comments={this.props.comments} />
+                <AddComment />
             </View>
         )
     }
