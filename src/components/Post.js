@@ -17,7 +17,7 @@ export class Post extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Author email="vitor@gmail.com" nickname="Vitor"/>
+                <Author email={this.props.email} nickname={this.props.nickname}/>
                 <Image source={this.props.image} style={styles.image}/>                       
                 <Comments comments={this.props.comments} />
                 <AddComment />

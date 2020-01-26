@@ -3,9 +3,7 @@ import {
   View  
 } from 'react-native';
 
-
-import {Header} from './src/components/Header';
-import {Post} from './src/components/Post';
+import {Feed} from './src/screens/Feed';
 
 let comments = [
   {nickname:'user',comment:'oi'},
@@ -17,8 +15,7 @@ let comments = [
 const App: () => React$Node = () => {
   return (
     <View style={[{flex:1}]}>
-      <Header/>     
-      <Post comments={comments} image={require('./assets/imgs/gate.jpg')}/>
+      <Feed />
     </View>
   );
 };
