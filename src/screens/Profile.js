@@ -6,7 +6,7 @@ import {Gravatar} from 'react-native-gravatar'
 export class Profile extends Component{
 
     logout = () => {
-        Alert.alert("logout","logout")
+        this.props.navigation.navigate('Auth')
     }
 
     render(){
@@ -27,7 +27,8 @@ export class Profile extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        alignItems: 'center',        
+        alignItems: 'center',    
+        justifyContent: 'center'    
     },
     avatar:{
         width: 110,
