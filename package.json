@@ -10,13 +10,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.6",
+    "axios": "latest",
     "react": "16.9.0",
     "react-native": "0.61.2",
-    "axios": "latest",
+    "react-native-gesture-handler": "^1.5.3",
     "react-native-gravatar": "latest",
     "react-native-image-picker": "latest",
-    "react-navigation": "latest",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-safe-area-context": "^0.6.2",
+    "react-native-screens": "^2.0.0-alpha.29",
     "react-native-vector-icons": "latest",
+    "react-navigation": "latest",
+    "react-navigation-tabs": "^2.7.0",
     "react-redux": "latest",
     "redux": "latest",
     "redux-thunk": "latest"
@@ -34,8 +40,8 @@
   "jest": {
     "preset": "react-native"
   },
-  "rnpm":{
-    "assets":[
+  "rnpm": {
+    "assets": [
       "./assets/fonts/"
     ]
   }
