@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {Feed} from './screens/Feed'
 import {AddPhoto} from './screens/AddPhoto'
+import {Profile} from './screens/Profile'
 
 const RouteConfigs = {
     Feed: {
@@ -28,7 +29,7 @@ const RouteConfigs = {
     },
     Profile: {
         name:'Profile',
-        screen: Feed,
+        screen: Profile,
         navigationOptions: {
             title:'Profile',
             tabBarIcon: ({tintColor}) => 

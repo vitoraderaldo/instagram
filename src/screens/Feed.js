@@ -10,7 +10,7 @@ export class Feed extends Component{
             {
                 id:Math.random(),
                 nickname:"Rafael",
-                email:"rafa",
+                email:"rafa",                
                 image: require('../../assets/imgs/gate.jpg'),
                 comments: [
                     {
@@ -27,7 +27,7 @@ export class Feed extends Component{
                 id:Math.random(),
                 nickname:"Vitor",
                 email:"vitor",
-                image: require('../../assets/imgs/gate.jpg'),
+                image: require('../../assets/imgs/fence.jpg'),
                 comments: []
             }
         ]
