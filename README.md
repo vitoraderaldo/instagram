@@ -6,7 +6,7 @@
 - NodeJs
 - Firebase
 
-####Iniciando o projeto
+#### Iniciando o projeto
 
 `$ git clone https://github.com/vitoraderaldo/instagram.git .`
 
