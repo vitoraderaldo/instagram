@@ -12,8 +12,7 @@ export class Register extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <TextInput 
-                    autoFocus={true}
+                <TextInput                     
                     placeholder='Nome'
                     onChangeText={(name) => this.setState({name})}
                     style={styles.input}
