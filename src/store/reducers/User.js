@@ -5,6 +5,9 @@ const initialState = {
     email: null
 }
 
+/*  Os reducers escutam as Actions e 
+    determinam as alterações no estado Global
+ */
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case USER_LOGGED_IN:
