@@ -11,16 +11,16 @@ import {
 
 import {Author} from '../components/Author'
 import {Comments} from '../components/Comments'
-import {AddComment} from '../components/AddComment'
+import AddComment from '../components/AddComment'
 
-export class Post extends Component{
+class Post extends Component{
     render(){
         return(
             <View style={styles.container}>
                 <Author email={this.props.email} nickname={this.props.nickname}/>
                 <Image source={this.props.image} style={styles.image}/>                       
                 <Comments comments={this.props.comments} />
-                <AddComment />
+                <AddComment postId={this.props.id}/>
             </View>
         )
     }
@@ -37,3 +37,5 @@ const styles = StyleSheet.create({
     },
    
 })
+
+export default Post
