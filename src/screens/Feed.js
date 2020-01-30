@@ -1,53 +1,29 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
 import {StyleSheet,FlatList,View} from 'react-native'
 
-import {Header} from '../components/Header'
+import Header from '../components/Header'
 import {Post} from '../components/Post'
 
-export class Feed extends Component{
-    state = {
-        posts:[
-            {
-                id:Math.random(),
-                nickname:"Rafael",
-                email:"rafa",                
-                image: require('../../assets/imgs/gate.jpg'),
-                comments: [
-                    {
-                        nickname:"John",
-                        comment:"Top Demais"
-                    },
-                    {
-                        nickname: "Braia",
-                        comment: "run run"
-                    }
-                ]
-            },
-            {
-                id:Math.random(),
-                nickname:"Vitor",
-                email:"vitor",
-                image: require('../../assets/imgs/fence.jpg'),
-                comments: []
-            }
-        ]
+class Feed extends Component{
+    state = {       
     }
     render(){
         return (
             <View style={styles.container}>
                 <Header />
                 <FlatList
-                    data={this.state.posts}
+                    data={this.props.posts}
                     keyExtractor={item => `${item.id}`}
                     renderItem={ ({item}) =>
                         <Post {...item} />
                     }
                 />
-            </View>
-            
+            </View>            
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     container:{
@@ -56,3 +32,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF'
     }
 })
+
+
+const mapStateToProps = ({posts}) => {
+    /* Coloca o que está no Store no Props do Componente */
+    return{
+        posts: posts.posts
+    }
+}
+
+export default connect(mapStateToProps)(Feed)
