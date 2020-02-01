@@ -7,6 +7,10 @@ import Navigator from './src/Navigator'
 
 import storeConfig from './src/store/StoreConfig'
 
+import axios from 'axios'
+axios.defaults.baseURL = 'https://instagram-d9d82.firebaseio.com/'
+
+
 const store = storeConfig()
 const Redux = () => {
     return(
