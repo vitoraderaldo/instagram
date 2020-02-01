@@ -8,19 +8,22 @@ import {
     Dimensions
 } from 'react-native'
 
-
+import {connect} from 'react-redux'
 import {Author} from '../components/Author'
 import {Comments} from '../components/Comments'
 import AddComment from '../components/AddComment'
 
+
 class Post extends Component{
     render(){
+        const addComment = this.props.name ?
+            <AddComment postId={this.props.id}/> : null
         return(
             <View style={styles.container}>
                 <Author email={this.props.email} nickname={this.props.nickname}/>
                 <Image source={this.props.image} style={styles.image}/>                       
                 <Comments comments={this.props.comments} />
-                <AddComment postId={this.props.id}/>
+                {addComment}
             </View>
         )
     }
@@ -38,4 +41,11 @@ const styles = StyleSheet.create({
    
 })
 
-export default Post
+const mapStateToProps = ({user}) => {
+    return{
+        name: user.name
+    }
+}
+
+export default connect(mapStateToProps)(Post)
+

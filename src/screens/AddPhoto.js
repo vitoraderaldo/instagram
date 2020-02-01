@@ -16,6 +16,7 @@ import {
 
 import ImagePicker from 'react-native-image-picker'
 
+const noUser = 'Você precisa estar logado para adicionar imagens'
 
 class AddPhoto extends Component{
     state = {
@@ -25,6 +26,10 @@ class AddPhoto extends Component{
 
     pickImage = () => {
 
+        if(!this.props.name){
+            Alert.alert("Falha",noUser)
+            return
+        }
         let config = {
             title:'Escolha a imagem',
             maxHeight: 600,
@@ -44,6 +49,11 @@ class AddPhoto extends Component{
     }
 
     save = async () => {
+        if(!this.props.name){
+            Alert.alert("Falha",noUser)
+            return
+        }
+
         this.props.onAddPost({
             id: Math.random(),
             nickname: this.props.name,
@@ -69,7 +79,7 @@ class AddPhoto extends Component{
                     <TouchableOpacity onPress={this.pickImage} style={styles.buttom}>
                         <Text style={styles.buttomText}>Escolha a foto</Text>
                     </TouchableOpacity>
-                    <TextInput onChangeText={(comment) => this.setState({comment})} placeholder='Algum comentário para a foto' style={styles.input} value={this.state.comment}/>
+                    <TextInput editable={this.props.name != null} onChangeText={(comment) => this.setState({comment})} placeholder='Algum comentário para a foto' style={styles.input} value={this.state.comment}/>
                     <TouchableOpacity onPress={this.save} style={styles.buttom}>
                         <Text style={styles.buttomText}>Salvar</Text>
                     </TouchableOpacity>
