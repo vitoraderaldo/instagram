@@ -7,7 +7,7 @@ import Feed from './screens/Feed'
 import AddPhoto from './screens/AddPhoto'
 import Profile from './screens/Profile'
 import Login from './screens/Login'
-import {Register} from './screens/Register'
+import Register from './screens/Register'
 
 const authRouter = createStackNavigator({    
     Login: {screen: Login, navigationOptions: {title:'Login'}},
