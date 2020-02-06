@@ -2,11 +2,11 @@ import {
     USER_LOGGED_IN,
     USER_LOGGED_OUT,
     LOADING_USER,
-    USER_LOADED
+    USER_LOADED,    
 }from './ActionTypes'
 import axios from 'axios'
 import { Alert } from 'react-native'
-
+import {setMessage} from './Message'
 const authBaseURL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty'
 const API_KEY = 'AIzaSyDTT1Lz_4MSmgdHAKkw7YCO2sOsKFLw3r4'
 
@@ -64,7 +64,7 @@ export const userLoaded = user => {
 }
 
 export const login = user => {
-    return dispatch => {
+    return dispatch => {      
         dispatch(loadingUser())
         axios.post(`${authBaseURL}/verifyPassword?key=${API_KEY}`,{
             email: user.email,
@@ -72,7 +72,10 @@ export const login = user => {
             returnSecureToken: true 
         })
 
-        .catch(err => console.log(err))
+        .catch(err => dispatch(setMessage({
+            title:'Erro',
+            text:err
+        })))
         .then(res => {
             if(res.data.localId){
                 axios.get(`/users/${res.data.localId}.json`)
