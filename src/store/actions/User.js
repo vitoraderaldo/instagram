@@ -42,8 +42,9 @@ export const createUser = user => {
                     name: user.name,
                 })
                 .catch(err => "Erro: "+console.log(err))
-                .then(res => {
-                    console.log("Usuário registrado com sucesso")
+                .then(() => {                                 
+                    dispatch(login(user))
+                    
                 })
             }
         })
@@ -78,10 +79,11 @@ export const login = user => {
         })))
         .then(res => {
             if(res.data.localId){
+                user.token = res.data.idToken
                 axios.get(`/users/${res.data.localId}.json`)
                 .catch(err => console.log(err))
                 .then(res => {
-                    user.password = null,
+                    delete user.password
                     user.name = res.data.name
                     dispatch(userLogged(user))
                     dispatch(userLoaded())
